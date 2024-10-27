@@ -11,18 +11,9 @@ import { Budget } from '../models/budget';
   styleUrls: ['./budget-list.component.css'],
 })
 export class BudgetListComponent implements OnInit {
-  budgets: Budget[] = []; 
+  budgets: any[] = [];
 
   @Output() budgetSelected = new EventEmitter<string>();
-
-    viewBudget(id: string | undefined) {
-      if (id) {
-        this.budgetSelected.emit(id); 
-      } else {
-        console.error('Budget ID is undefined');
-      }
-    }
-
 
   constructor(private http: HttpClient) {}
 
@@ -31,7 +22,7 @@ export class BudgetListComponent implements OnInit {
   }
 
   loadBudgets() {
-    this.http.get<any[]>('http://localhost:3000/api/budgets')
+    this.http.get<any[]>('/api/budgets')
       .subscribe(
         data => {
           this.budgets = data;
@@ -42,6 +33,13 @@ export class BudgetListComponent implements OnInit {
       );
   }
 
+  viewBudget(id: string | undefined) {
+    if (id) {
+      this.budgetSelected.emit(id); 
+    } else {
+      console.error('Budget ID is undefined');
+    }
+  }
 
   
 }
