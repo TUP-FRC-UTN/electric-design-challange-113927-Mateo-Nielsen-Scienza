@@ -17,15 +17,3 @@
   </tbody>
 </table>
 
-<div *ngIf="budget">
-  <h2>Presupuesto para {{ budget.client }}</h2>
-  <p>Fecha: {{ budget.date | date }}</p>
-  <p>Total Costo: {{ budget.totalCost }}</p>
-  <p>Total Cajas: {{ budget.totalBoxes }}</p>
-  <div *ngFor="let module of budget.modules">
-    <p>Ambiente: {{ module.environment }}</p>
-    <p>Tipo de Módulo: {{ module.moduleType }}</p>
-    <p>Precio: {{ module.price }}</p>
-    <p>Lugares: {{ module.slots }}</p>
-  </div>
-</div>
