@@ -1,0 +1,22 @@
+{
+  "budgets": [
+    {
+      "id": "1",
+      "client": "Cliente 1",
+      "date": "2024-10-01T00:00:00.000Z",
+      "modules": []
+    },
+    {
+      "id": "2",
+      "client": "Cliente 2",
+      "date": "2024-10-02T00:00:00.000Z",
+      "modules": []
+    }
+  ],
+  "module-types": [
+    { "id": 1, "name": "Interruptor", "price": 500, "slots": 1 },
+    { "id": 2, "name": "Toma Corriente", "price": 300, "slots": 1 },
+    { "id": 3, "name": "USB", "price": 700, "slots": 2 },
+    { "id": 4, "name": "Módulo Doble", "price": 1000, "slots": 3 }
+  ]
+}

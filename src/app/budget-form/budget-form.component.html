@@ -2,3 +2,31 @@
 https://getbootstrap.com/docs/5.3/forms/form-control/#example
 https://getbootstrap.com/docs/5.3/forms/select/#default
 https://getbootstrap.com/docs/5.3/forms/select/#default -->
+
+<form [formGroup]="budgetForm" (ngSubmit)="submit()">
+  <label for="date">Date:</label>
+  <input id="date" formControlName="date" [value]="today" readonly>
+
+  <label for="client">Client:</label>
+  <input id="client" formControlName="client">
+
+  <div formArrayName="modules">
+    <div *ngFor="let module of modules.controls; let i = index" [formGroupName]="i">
+      <label for="type">Module Type:</label>
+      <select formControlName="type">
+        <option *ngFor="let type of moduleTypes" [value]="type.id">{{ type.name }}</option>
+      </select>
+
+      <label for="environment">Environment:</label>
+      <input id="environment" formControlName="environment">
+
+      <button type="button" (click)="removeModule(i)">Remove Module</button>
+    </div>
+  </div>
+  <button type="button" (click)="addModule()">Add Module</button>
+  <button type="submit">Submit</button>
+</form>
+
+<p>Budget ID: {{ budget.id }}</p>
+<p>Budget Name: {{ budget.name }}</p>
+<p>Zones: {{ budget.zones | json }}</p> 
