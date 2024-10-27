@@ -1,41 +1,19 @@
 {
-  "budgets": [],
   "module-types": [
+    { "id": 1, "name": "Interruptor", "slots": 1, "price": 10 },
+    { "id": 2, "name": "Toma Corriente", "slots": 1, "price": 15 },
+    { "id": 3, "name": "USB", "slots": 1, "price": 20 },
+    { "id": 4, "name": "Dimmer", "slots": 2, "price": 25 }
+  ],
+  "budgets": [
     {
-      "id": "1",
-      "name": "Interruptor simple",
-      "slots": 1,
-      "price": 1000
-    },
-    {
-      "id": "2",
-      "name": "Interruptor doble",
-      "slots": 2,
-      "price": 2000
-    },
-    {
-      "id": "3",
-      "name": "Toma corriente simple",
-      "slots": 1,
-      "price": 1500
-    },
-    {
-      "id": "4",
-      "name": "Toma corriente doble",
-      "slots": 2,
-      "price": 3000
-    },
-    {
-      "id": "5",
-      "name": "Toma corriente triple",
-      "slots": 3,
-      "price": 1700
-    },
-    {
-      "id": "6",
-      "name": "USB",
-      "slots": 1,
-      "price": 5000
+      "id": 1,
+      "client": "Cliente 1",
+      "date": "2023-10-01",
+      "modules": [
+        { "moduleTypeId": 1, "zone": "Living", "price": 10, "slots": 1 },
+        { "moduleTypeId": 2, "zone": "Comedor", "price": 15, "slots": 1 }
+      ]
     }
   ]
 }

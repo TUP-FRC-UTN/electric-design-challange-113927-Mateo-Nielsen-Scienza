@@ -1,1 +1,36 @@
-<!-- PUT YOUR CODE HERE MENU BUILT FROM: https://getbootstrap.com/docs/5.3/forms/select/#default -->
+<div class="container">
+  <h1>{{ title }}</h1>
+
+  <button (click)="showForm = !showForm" class="btn btn-primary mb-3">
+      {{ showForm ? 'Ocultar Formulario' : 'Mostrar Formulario' }}
+  </button>
+
+  
+  <app-budget-form *ngIf="showForm"></app-budget-form>
+
+  
+  <app-budget-list (budgetSelected)="onBudgetSelected($event)"></app-budget-list>
+
+ 
+  <app-budget-view *ngIf="selectedBudget !== null" [budgetId]="selectedBudget"></app-budget-view>
+
+</div>
+
+<table class="table table-striped mt-3">
+  <thead>
+      <tr>
+          <th>Fecha</th>
+          <th>Cliente</th>
+          <th>Acciones</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let budget of budgets">
+          <td>{{ budget.date }}</td>
+          <td>{{ budget.client }}</td>
+          <td>
+              <button (click)="viewBudget(budget.id)" class="btn btn-link">Ver</button>
+          </td>
+      </tr>
+  </tbody>
+</table>

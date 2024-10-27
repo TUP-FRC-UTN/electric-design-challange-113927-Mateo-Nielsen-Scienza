@@ -1,24 +1,25 @@
 export interface Budget {
-  id?: string;
-  client: string;
-  date: Date;
-  /* TODO
-     Add collection to hold data about:
-        - zone
-        - moduleType reference that has information about (slots, price, type)
-  */
+  id?: string;                
+  client: string;             
+  date: Date;                  
+  modules: Module[];        
 }
 
 export enum Zone {
-  LIVING = 'Living',
-  COMEDOR = 'Comedor',
-  KITCHEN = 'Cocina',
-  ROOM = 'Dormitorio'
+  LIVING = 'Living',         
+  DINING = 'Comedor',         
+  KITCHEN = 'Cocina',         
+  BEDROOM = 'Dormitorio'       
 }
 
 export interface ModuleType {
-  id: number;
-  name: string;
-  slots: number;
-  price: number;
+  id: number;                 
+  name: string;              
+  slots: number;              
+  price: number;              
+}
+
+export interface Module {
+  moduleTypeId: number;       
+  zone: Zone;                 
 }
